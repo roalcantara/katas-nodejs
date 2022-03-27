@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "nrwl.angular-console",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "firsttris.vscode-jest-runner",
+      "bierner.markdown-preview-github-styles",
+      "wallabyjs.quokka-vscode",
+      "wallabyjs.wallaby-vscode",
+      "yzhang.markdown-all-in-one"
+    ]
+  }
+}
