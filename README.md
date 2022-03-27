@@ -8,6 +8,7 @@ Collection of exercises to help you get fit
 [![Editor Config](https://img.shields.io/badge/Editor%20Config-1.0.1-crimson.svg)][3]
 [![prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)][8]
 [![eslint](https://img.shields.io/badge/code%20style-eslint-green)][9]
+[![jest](https://jestjs.io/img/jest-badge.svg)][13]
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)][12]
 
 ## Install
@@ -132,3 +133,4 @@ The project is available as open source under the terms of the [MIT][1] [License
 [10]: https://pre-commit.com 'A framework for managing and maintaining multi-language pre-commit hooks'
 [11]: https://jorisroovers.com/gitlint 'git commit message linter'
 [12]: https://conventionalcommits.org 'Conventional Commits'
+[13]: https://jestjs.io 'Jest'
