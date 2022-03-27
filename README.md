@@ -28,6 +28,9 @@ Collection of exercises to help you get fit
 - Run `make clear` to clear the cache
 - Run `make purge` to clear the cache and node_modules
 - Run `make reset` to clear the cache, node_modules and reinstall dependencies
+- Run `make build/all` to build all projects in parallel
+- Run `make lint/all` to run all linting rules in parallel via [Eslint][12]
+- Run `make test/all` to run all tests in parallel via [Jest][13]
 
 ### Nx
 

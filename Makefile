@@ -20,6 +20,18 @@ purge: ## Clear the cache and node_modules
 reset: ## Clear the cache, node_modules and reinstall dependencies
 	npm run reset
 
+.PHONY: build/all
+build/all: ## Build all projects in parallel
+	npm run build:all
+
+.PHONY: lint/all
+lint/all: ## Linters all projects in parallel
+	npm run lint:all
+
+.PHONY: test/all
+test/all: ## Installs  dependencies
+	npm run test:all
+
 .PHONY: help
 help: ## Show all available tasks
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z\-_0-9%:\/]+:.*?## / {printf "\033[36m%-20s→\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST) | sed s/://
