@@ -1,1 +1,1 @@
-export * from './lib/katas'
+export * from './lib'
