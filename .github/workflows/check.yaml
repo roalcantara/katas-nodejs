@@ -1,0 +1,113 @@
+name: Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+env:
+  CI: true
+  NODE_VERSION: 16
+  FORCE_COLOR: true
+  NODE_MODULES_CACHE_KEY: node-modules-cache
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          architecture: x64
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.NODE_MODULES_CACHE_KEY }}-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v2
+      - name: Install dependencies
+        run: npm ci && npm install @swc/core-linux-x64-gnu -G
+
+  format:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          architecture: x64
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.NODE_MODULES_CACHE_KEY }}-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v2
+      - run: npx nx format:check --parallel
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          architecture: x64
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.NODE_MODULES_CACHE_KEY }}-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v2
+      - run: npx nx workspace-lint
+      - run: npx nx affected:lint --parallel
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          architecture: x64
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.NODE_MODULES_CACHE_KEY }}-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v2
+      - run: npx nx affected:test --parallel --ci
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          architecture: x64
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.NODE_MODULES_CACHE_KEY }}-${{ hashFiles('package-lock.json') }}
+      - uses: nrwl/nx-set-shas@v2
+      - run: npx nx affected:build --parallel --prod
