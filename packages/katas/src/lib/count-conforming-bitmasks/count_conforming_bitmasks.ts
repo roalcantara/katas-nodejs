@@ -1,4 +1,6 @@
 /* eslint-disable no-loops/no-loops */
+// https://stackoverflow.com/questions/10401239/count-bitmasks-enumerate-0s
+
 const count = (d: number) => {
   let bits = 0
   for (let i = 0; i < 32; i++) {
