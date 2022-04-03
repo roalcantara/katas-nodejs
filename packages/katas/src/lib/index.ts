@@ -1,2 +1,5 @@
+export * from './binary-gap/binary_gap'
 export * from './highest_and_lowests/high_and_low'
 export * from './sum_of_odd_numbers/row_sum_odd_numbers'
+export * from './tower_builders/tower_builder'
+export * from './valid_braces/valid_braces'
