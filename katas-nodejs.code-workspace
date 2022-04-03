@@ -4,7 +4,9 @@
       "path": "."
     }
   ],
-  "settings": {},
+  "settings": {
+    "jest.jestCommandLine": "npx jest -c jest.config.js"
+  },
   "extensions": {
     "recommendations": [
       "nrwl.angular-console",
