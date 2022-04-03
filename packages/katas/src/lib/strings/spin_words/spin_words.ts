@@ -14,8 +14,5 @@
 export const spinWords = (words: string) =>
   words
     .split(' ')
-    .reduce<string[]>(
-      (acc, word) => (word.length >= 5 ? [...acc, word.split('').reverse().join('')] : [...acc, word]),
-      []
-    )
+    .map((word) => (word.length >= 5 ? word.split('').reverse().join('') : word))
     .join(' ')
