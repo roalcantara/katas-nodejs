@@ -43,13 +43,9 @@
  * @example buildPileOfCubes(91716553919377) // -1
  */
 export const buildPileOfCubes = (m: number) => {
-  let total = 0
   let n = 0
 
-  while (total < m) {
-    n++
-    total += Math.pow(n, 3)
-  }
+  while (m > 0) m -= Math.pow(++n, 3)
 
-  return total === m ? n : -1
+  return m ? -1 : n
 }
