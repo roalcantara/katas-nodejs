@@ -100,7 +100,7 @@ overrides:
             caseInsensitive: false
 
       # no-loops
-      no-loops/no-loops: 2
+      no-loops/no-loops: off
 
       # comments
       eslint-comments/disable-enable-pair: off

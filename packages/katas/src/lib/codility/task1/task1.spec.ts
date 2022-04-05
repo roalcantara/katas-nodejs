@@ -13,9 +13,3 @@ describe('#task1()', () => {
     })
   })
 })
-
-// Example test:   ([0, 4, -1, 0, 3], [0, -2, 5, 0, 3])OK
-// Example test:   ([2, -2, -3, 3], [0, 0, 4, -4]) OK
-// Example test:   ([4, -1, 0, 3], [-2, 6, 0, 4]) OK
-// Example test:   ([3, 2, 6], [4, 1, 6]) OK
-// Example test:   ([1, 4, 2, -2, 5], [7, -2, -2, 2, 5]) OK
