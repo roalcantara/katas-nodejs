@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "jiqsaw": "packages/jiqsaw",
     "katas": "packages/katas"
   }
 }

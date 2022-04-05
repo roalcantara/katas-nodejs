@@ -1,0 +1,23 @@
+{
+  "root": "packages/jiqsaw",
+  "sourceRoot": "packages/jiqsaw/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/jiqsaw/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/jiqsaw"],
+      "options": {
+        "jestConfig": "packages/jiqsaw/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

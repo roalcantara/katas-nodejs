@@ -17,6 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@katas-nodejs/jiqsaw": ["packages/jiqsaw/src/index.ts"],
       "@katas-nodejs/katas": ["packages/katas/src/index.ts"]
     }
   },
