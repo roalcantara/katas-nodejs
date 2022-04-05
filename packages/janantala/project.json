@@ -1,0 +1,23 @@
+{
+  "root": "packages/janantala",
+  "sourceRoot": "packages/janantala/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/janantala/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/janantala"],
+      "options": {
+        "jestConfig": "packages/janantala/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
