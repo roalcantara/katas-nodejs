@@ -10,6 +10,7 @@
     "katas": "packages/katas",
     "mrhead": "packages/mrhead",
     "shihsyun": "packages/shihsyun",
-    "yaseenshaik": "packages/yaseenshaik"
+    "yaseenshaik": "packages/yaseenshaik",
+    "yiqin": "packages/yiqin"
   }
 }

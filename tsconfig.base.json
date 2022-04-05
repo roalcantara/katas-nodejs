@@ -26,7 +26,8 @@
       "@katas-nodejs/katas": ["packages/katas/src/index.ts"],
       "@katas-nodejs/mrhead": ["packages/mrhead/src/index.ts"],
       "@katas-nodejs/shihsyun": ["packages/shihsyun/src/index.ts"],
-      "@katas-nodejs/yaseenshaik": ["packages/yaseenshaik/src/index.ts"]
+      "@katas-nodejs/yaseenshaik": ["packages/yaseenshaik/src/index.ts"],
+      "@katas-nodejs/yiqin": ["packages/yiqin/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
