@@ -1,0 +1,23 @@
+{
+  "root": "packages/gustavohenke",
+  "sourceRoot": "packages/gustavohenke/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/gustavohenke/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/gustavohenke"],
+      "options": {
+        "jestConfig": "packages/gustavohenke/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

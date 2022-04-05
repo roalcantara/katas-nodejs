@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "gustavohenke": "packages/gustavohenke",
     "janantala": "packages/janantala",
     "jiqsaw": "packages/jiqsaw",
     "katas": "packages/katas"
