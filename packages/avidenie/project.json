@@ -1,0 +1,23 @@
+{
+  "root": "packages/avidenie",
+  "sourceRoot": "packages/avidenie/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/avidenie/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/avidenie"],
+      "options": {
+        "jestConfig": "packages/avidenie/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
