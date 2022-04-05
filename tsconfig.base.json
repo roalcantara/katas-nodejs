@@ -18,6 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@katas-nodejs/avidenie": ["packages/avidenie/src/index.ts"],
+      "@katas-nodejs/cutajarj": ["packages/cutajarj/src/index.ts"],
       "@katas-nodejs/gustavohenke": ["packages/gustavohenke/src/index.ts"],
       "@katas-nodejs/janantala": ["packages/janantala/src/index.ts"],
       "@katas-nodejs/jiqsaw": ["packages/jiqsaw/src/index.ts"],
