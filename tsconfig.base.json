@@ -17,6 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@katas-nodejs/ashwinluke": ["packages/ashwinluke/src/index.ts"],
       "@katas-nodejs/avidenie": ["packages/avidenie/src/index.ts"],
       "@katas-nodejs/cutajarj": ["packages/cutajarj/src/index.ts"],
       "@katas-nodejs/gustavohenke": ["packages/gustavohenke/src/index.ts"],
