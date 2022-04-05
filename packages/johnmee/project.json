@@ -1,0 +1,23 @@
+{
+  "root": "packages/johnmee",
+  "sourceRoot": "packages/johnmee/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/johnmee/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/johnmee"],
+      "options": {
+        "jestConfig": "packages/johnmee/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

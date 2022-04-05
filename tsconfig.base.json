@@ -23,6 +23,7 @@
       "@katas-nodejs/gustavohenke": ["packages/gustavohenke/src/index.ts"],
       "@katas-nodejs/janantala": ["packages/janantala/src/index.ts"],
       "@katas-nodejs/jiqsaw": ["packages/jiqsaw/src/index.ts"],
+      "@katas-nodejs/johnmee": ["packages/johnmee/src/index.ts"],
       "@katas-nodejs/jonasraoni": ["packages/jonasraoni/src/index.ts"],
       "@katas-nodejs/katas": ["packages/katas/src/index.ts"],
       "@katas-nodejs/mrhead": ["packages/mrhead/src/index.ts"],
