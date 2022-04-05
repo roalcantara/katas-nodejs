@@ -21,6 +21,7 @@
       "@katas-nodejs/gustavohenke": ["packages/gustavohenke/src/index.ts"],
       "@katas-nodejs/janantala": ["packages/janantala/src/index.ts"],
       "@katas-nodejs/jiqsaw": ["packages/jiqsaw/src/index.ts"],
+      "@katas-nodejs/jonasraoni": ["packages/jonasraoni/src/index.ts"],
       "@katas-nodejs/katas": ["packages/katas/src/index.ts"],
       "@katas-nodejs/yaseenshaik": ["packages/yaseenshaik/src/index.ts"]
     }

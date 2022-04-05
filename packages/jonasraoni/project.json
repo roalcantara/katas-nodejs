@@ -1,0 +1,23 @@
+{
+  "root": "packages/jonasraoni",
+  "sourceRoot": "packages/jonasraoni/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/jonasraoni/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/jonasraoni"],
+      "options": {
+        "jestConfig": "packages/jonasraoni/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
