@@ -10,20 +10,15 @@ export function solution(max = 10000, len = 999) {
   while (i <= len) {
     if (i < 10) {
       sum += i
-      console.log(i)
     } else {
       const f = i.toString().charAt(0)
       const s = i.toString().charAt(1)
       if (f === s) {
         sum += i
-        console.log(i)
       }
-      console.log(Number(i.toString() + f.toString()))
-      console.log(Number(i.toString() + s.toString() + f.toString()))
       sum += Number(i.toString() + f.toString())
       sum += Number(i.toString() + s.toString() + f.toString())
     }
-    console.log('---')
     i++
   }
   return sum

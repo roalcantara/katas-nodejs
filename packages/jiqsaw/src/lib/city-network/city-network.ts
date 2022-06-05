@@ -9,13 +9,11 @@ export const cityNetwork = (T: number[]) => {
   const len = T.length
   const result = []
   let capital = -1
-
   while (i < len) {
     result[i] = 0
     if (i === T[i]) capital = i
     i++
   }
-
   i = 0
   while (i < len) {
     let resultIndex = 0
@@ -40,14 +38,5 @@ export const cityNetwork = (T: number[]) => {
     }
     i++
   }
-
   return result
 }
-
-// test([9, 1, 4, 9, 0, 4, 8, 9, 0, 1])
-// // [1, 3, 2, 3, 0, 0, 0, 0, 0]
-
-// function test(...params) {
-//   console.log('\n(', ...params, ')\n')
-//   console.log('\n=>', solution(...params), '\n\n')
-// }
