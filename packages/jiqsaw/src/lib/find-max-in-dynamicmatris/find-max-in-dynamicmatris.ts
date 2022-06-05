@@ -1,130 +1,280 @@
+/* eslint-disable @typescript-eslint/no-loop-func */
+const getValue = (arr: number[][], indexes: number[][]) => {
+  let strNumber = ''
+  for (const [x, y] of indexes) {
+    if (arr[x] !== undefined && arr[x][y] !== undefined) {
+      strNumber += String(arr[x][y])
+    } else {
+      return -1
+    }
+  }
+  return Number(strNumber)
+}
+
 /*
-
-    Q3
-
-    Find the maximum 4 digit number in dynamicmatris
-
+  Q3: Find the maximum 4 digit number in dynamicmatris
 */
+export const solution = (Board: string) => {
+  const N = Board.substring(3, Board.indexOf(', M'))
+  const M = Board.substring(Board.indexOf('M=') + 2, Board.length - 1)
+  let i = 0
+  let max = 0
+  const arr: number[][] = []
+  let maxNumberIds: number[][] = []
+  const topNumbers: number[] = []
 
-function solution(Board) {
+  while (i < Number(N)) {
+    arr[i] = []
+    Array.from(new Array(Number(M)), (_val, index) => {
+      const rnd = Math.floor(Math.random() * 10)
 
-    let N = Board.substring(3, Board.indexOf(', M'));
-    let M = Board.substring(Board.indexOf('M=') + 2, Board.length - 1);
+      arr[i].push(rnd)
 
-    let max = 0;
-    let arr = [];
-    let i = 0;
-    let maxNumberIds = [];
-    topNumbers = [];
+      if (rnd > max) {
+        max = rnd
+        maxNumberIds = [[i, index]]
+      } else if (rnd === max) {
+        maxNumberIds.push([i, index])
+      }
 
-    while (i < N) {
+      return rnd
+    })
+    i++
+  }
 
-        arr[i] = [];
-        Array.from(new Array(Number(M)), (val, index) => {
-            const rnd = Math.floor(Math.random() * 10);
+  for (const [x, y] of maxNumberIds) {
+    const list = [
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 2, y],
+        [x - 3, y]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 2, y],
+        [x - 2, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 2, y],
+        [x - 3, y + 1]
+      ]),
 
-            arr[i].push(rnd);
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y - 1],
+        [x - 2, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y - 1],
+        [x - 1, y - 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y - 1],
+        [x, y - 1]
+      ]),
 
-            if (rnd > max) {
-                max = rnd;
-                maxNumberIds = [[i, index]];
-            } else if (rnd === max) {
-                maxNumberIds.push([i, index]);
-            }
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y + 1],
+        [x - 2, y + 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y + 1],
+        [x - 1, y + 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x - 1, y],
+        [x - 1, y + 1],
+        [x, y + 1]
+      ]),
 
-            return rnd;
-        })
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x, y - 2],
+        [x, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x, y - 2],
+        [x - 1, y - 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x, y - 2],
+        [x + 1, y - 2]
+      ]),
 
-        console.log(arr[i])
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x - 1, y - 1],
+        [x - 2, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x - 1, y - 1],
+        [x - 1, y - 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x - 1, y - 1],
+        [x - 1, y]
+      ]),
 
-        i++;
-    }
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x + 1, y - 1],
+        [x + 2, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x + 1, y - 1],
+        [x + 1, y - 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y - 1],
+        [x + 1, y - 1],
+        [x + 1, y]
+      ]),
 
-    for (const [x, y] of maxNumberIds) {
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x, y + 2],
+        [x, y + 3]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x, y + 2],
+        [x - 1, y + 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x, y + 2],
+        [x + 1, y + 2]
+      ]),
 
-        const list = [
-            getValue(arr, [[x, y], [x - 1, y], [x - 2, y], [x - 3, y]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 2, y], [x - 2, y - 1]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 2, y], [x - 3, y + 1]]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x - 1, y + 1],
+        [x - 2, y + 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x - 1, y + 1],
+        [x - 1, y]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x - 1, y + 1],
+        [x - 1, y + 2]
+      ]),
 
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y - 1], [x - 2, y - 1]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y - 1], [x - 1, y - 2]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y - 1], [x, y - 1]]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x + 1, y + 1],
+        [x + 1, y + 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x + 1, y + 1],
+        [x + 2, y + 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x, y + 1],
+        [x + 1, y + 1],
+        [x + 1, y]
+      ]),
 
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y + 1], [x - 2, y + 1]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y + 1], [x - 1, y + 2]]),
-            getValue(arr, [[x, y], [x - 1, y], [x - 1, y + 1], [x, y + 1]]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 2, y],
+        [x + 3, y]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 2, y],
+        [x + 2, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 2, y],
+        [x + 2, y + 1]
+      ]),
 
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y - 1],
+        [x + 1, y - 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y - 1],
+        [x, y - 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y - 1],
+        [x + 2, y - 1]
+      ]),
 
-            getValue(arr, [[x, y], [x, y - 1], [x, y - 2], [x, y - 1]]),
-            getValue(arr, [[x, y], [x, y - 1], [x, y - 2], [x - 1, y - 2]]),
-            getValue(arr, [[x, y], [x, y - 1], [x, y - 2], [x + 1, y - 2]]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y + 1],
+        [x, y + 1]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y + 1],
+        [x + 1, y + 2]
+      ]),
+      getValue(arr, [
+        [x, y],
+        [x + 1, y],
+        [x + 1, y + 1],
+        [x + 2, y + 1]
+      ])
+    ]
 
-            getValue(arr, [[x, y], [x, y - 1], [x - 1, y - 1], [x - 2, y - 1]]),
-            getValue(arr, [[x, y], [x, y - 1], [x - 1, y - 1], [x - 1, y - 2]]),
-            getValue(arr, [[x, y], [x, y - 1], [x - 1, y - 1], [x - 1, y]]),
+    topNumbers.push(Math.max(...list))
+  }
 
-            getValue(arr, [[x, y], [x, y - 1], [x + 1, y - 1], [x + 2, y - 1]]),
-            getValue(arr, [[x, y], [x, y - 1], [x + 1, y - 1], [x + 1, y - 2]]),
-            getValue(arr, [[x, y], [x, y - 1], [x + 1, y - 1], [x + 1, y]]),
-
-
-            getValue(arr, [[x, y], [x, y + 1], [x, y + 2], [x, y + 3]]),
-            getValue(arr, [[x, y], [x, y + 1], [x, y + 2], [x - 1, y + 2]]),
-            getValue(arr, [[x, y], [x, y + 1], [x, y + 2], [x + 1, y + 2]]),
-
-            getValue(arr, [[x, y], [x, y + 1], [x - 1, y + 1], [x - 2, y + 1]]),
-            getValue(arr, [[x, y], [x, y + 1], [x - 1, y + 1], [x - 1, y]]),
-            getValue(arr, [[x, y], [x, y + 1], [x - 1, y + 1], [x - 1, y + 2]]),
-
-            getValue(arr, [[x, y], [x, y + 1], [x + 1, y + 1], [x + 1, y + 2]]),
-            getValue(arr, [[x, y], [x, y + 1], [x + 1, y + 1], [x + 2, y + 1]]),
-            getValue(arr, [[x, y], [x, y + 1], [x + 1, y + 1], [x + 1, y]]),
-
-
-            getValue(arr, [[x, y], [x + 1, y], [x + 2, y], [x + 3, y]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 2, y], [x + 2, y - 1]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 2, y], [x + 2, y + 1]]),
-
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y - 1], [x + 1, y - 2]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y - 1], [x, y - 1]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y - 1], [x + 2, y - 1]]),
-
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y + 1], [x, y + 1]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y + 1], [x + 1, y + 2]]),
-            getValue(arr, [[x, y], [x + 1, y], [x + 1, y + 1], [x + 2, y + 1]])
-        ];
-
-
-        topNumbers.push(Math.max(...list));
-
-    }
-
-    console.log('topNumbers:', topNumbers)
-
-    return Math.max(...topNumbers);
-}
-
-
-function getValue(arr, indexes) {
-
-    strNumber = '';
-    for (const [x, y] of indexes) {
-        if ((arr[x] !== undefined) && (arr[x][y] !== undefined)) {
-            strNumber += String(arr[x][y]);
-        } else {
-            return -1;
-        }
-    }
-
-    return Number(strNumber);
-}
-
-
-test('(N=3, M=5)');
-
-
-function test(...params) {
-    console.log('\n(', ...params, ')\n');
-    console.log('\n=>', solution(...params), '\n\n');
+  return Math.max(...topNumbers)
 }

@@ -1,6 +1,4 @@
-const isSemiPrime = (N: number) => {
-  return 1
-}
+const isSemiPrime = (N: number) => 1
 
 /**
  * Count the semiprime numbers in the given range [a..b]
